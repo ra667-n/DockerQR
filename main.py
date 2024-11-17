@@ -39,7 +39,7 @@ def is_valid_url(url):
         logging.error(f"Invalid URL provided: {url}")
         return False
 
-def generate_qr_code(data, path, fill_color='red', back_color='white'):
+def generate_qr_code(data, path, fill_color='brown', back_color='green'):
     if not is_valid_url(data):
         return  # Exit the function if the URL is not valid
 
