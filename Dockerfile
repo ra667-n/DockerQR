@@ -21,20 +21,17 @@ RUN mkdir -p /app/logs /app/qr_codes && chown myuser:myuser
 /app/logs /app/qr_codes
 
 
-# Copy the rest of the application's source code into the 
-container, setting ownership to 'myuser'
+# Copy the rest of the application's source code into the container, setting ownership to 'myuser'
 COPY --chown=myuser:myuser . .
 
 # Switch to the 'myuser' user to run the application
 USER myuser
 
-# Use the Python interpreter as the entrypoint and the 
-script as the first argument
+# Use the Python interpreter as the entrypoint and the script as the first argument
 # This allows additional command-line arguments to be passed 
 to the script via the docker run command
 ENTRYPOINT ["python", "main.py"]
-# this sets a default argument, its also set in the program 
-but this just illustrates how to use cmd and override it 
+# this sets a default argument, its also set in the program but this just illustrates how to use cmd and override it 
 from the terminal
 CMD ["--url","http://github.com/ra667-n"]
 
