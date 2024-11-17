@@ -13,9 +13,6 @@ COPY requirements.txt ./
 # Install the Python packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-# Create the logs and qr_codes directories and set ownership for the non-root user
-RUN mkdir -p /app/logs /app/qr_codes && chown -R myuser:myuser /app/logs /app/qr_codes
-
 # Copy the rest of the application's source code into the container, setting ownership to 'myuser'
 COPY --chown=myuser:myuser . .
 
