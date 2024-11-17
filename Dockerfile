@@ -13,6 +13,9 @@ COPY requirements.txt ./
 # Install the Python packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
+# Create a non-root user and group
+RUN groupadd -r myuser && useradd -r -g myuser myuser
+
 # Create the logs and qr_codes directories and set ownership for the non-root user
 RUN mkdir -p /app/logs /app/qr_codes && chown -R myuser:myuser /app/logs /app/qr_codes
 
